@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MinimalShop - Home</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #222;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 0.75rem 0 0.25rem;
+    }
+    .product p {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.85rem;
+      border-top: 1px solid #eee;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MinimalShop</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Prodotti</a>
+      <a href="#">Contatti</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Benvenuto su MinimalShop</h1>
+    <p>Scopri i nostri prodotti in evidenza, scelti con cura per te.</p>
+  </section>
+
+  <section class="products" id="products"></section>
+
+  <footer>
+    © 2025 MinimalShop — Tutti i diritti riservati
+  </footer>
+
+  <script>
+    const products = [
+      { name: 'Zaino Minimal', price: 59.99, img: 'https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=800&q=80' },
+      { name: 'Orologio Nero', price: 120.00, img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'Sneakers Bianche', price: 89.50, img: 'https://images.unsplash.com/photo-1606813902912-7a6e7e0644b0?auto=format&fit=crop&w=800&q=80' },
+      { name: 'Tazza Design', price: 24.99, img: 'https://images.unsplash.com/photo-1523475496153-3d6cc0d0e9f3?auto=format&fit=crop&w=800&q=80' }
+    ];
+
+    const container = document.getElementById('products');
+
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product';
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p class="price">€${p.price.toFixed(2)}</p>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
